@@ -44,7 +44,7 @@ export default function Hero() {
   };
 
   return (
-    <div className="relative w-full h-[90vh] overflow-hidden bg-gray-100">
+    <div className="relative w-full h-screen pt-16 overflow-hidden bg-gray-100">
       <div className="absolute inset-0">
         <AnimatePresence>
           {slides.map(
