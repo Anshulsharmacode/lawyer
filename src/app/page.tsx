@@ -5,6 +5,7 @@ import OurMission from "@/components/Ourmisson";
 import AreaOfPractices from "@/components/Area";
 import WhatOurClientsSay from "@/components/Testim"
 import Footer from "@/components/Footer";
+import Why from "@/components/Why";
 export default function Home() {
   return (
    <div>
@@ -12,6 +13,7 @@ export default function Home() {
     <Hero/>
     <OurMission/>
     <AreaOfPractices/>
+    <Why/>
     <WhatOurClientsSay/>
     <Footer/>
    </div>

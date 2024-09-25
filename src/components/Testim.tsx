@@ -44,7 +44,7 @@ export default function WhatOurClientsSay() {
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0, transition: { duration: 0.6 } }}
         >
-          Client Testimonials
+          Client <span></span> Testimonials
         </motion.h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
