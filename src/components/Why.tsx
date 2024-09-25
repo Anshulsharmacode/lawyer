@@ -1,79 +1,103 @@
-"use client"
-import React from 'react';
+"use client";
+import React from "react";
 import { motion } from "framer-motion";
-import { FaBalanceScale, FaHandshake, FaClock, FaAward, FaUsers, FaGlobe } from 'react-icons/fa';
+import {
+  FaBalanceScale,
+  FaHandshake,
+  FaClock,
+  FaAward,
+  FaUsers,
+  FaGlobe,
+} from "react-icons/fa";
+import { Montserrat } from "next/font/google";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+
+const montserrat = Montserrat({ subsets: ["latin"] });
 
 const whyChooseUs = [
   {
     id: 1,
-    icon: <FaBalanceScale className="text-5xl text-red-600" />,
+    icon: <FaBalanceScale className="text-5xl text-color-5" />,
     title: "50 Years of Experience",
-    description: "With half a century of legal expertise, we've successfully handled thousands of cases across various practice areas."
+    description:
+      "With half a century of legal expertise, we've successfully handled thousands of cases across various practice areas.",
   },
   {
     id: 2,
-    icon: <FaHandshake className="text-5xl text-red-600" />,
+    icon: <FaHandshake className="text-5xl text-color-5" />,
     title: "Client-Focused Approach",
-    description: "We prioritize your needs and work tirelessly to achieve the best possible outcomes for your case."
+    description:
+      "We prioritize your needs and work tirelessly to achieve the best possible outcomes for your case.",
   },
   {
     id: 3,
-    icon: <FaClock className="text-5xl text-red-600" />,
+    icon: <FaClock className="text-5xl text-color-5" />,
     title: "24/7 Availability",
-    description: "Our team is always ready to assist you, providing round-the-clock support for your legal concerns."
+    description:
+      "Our team is always ready to assist you, providing round-the-clock support for your legal concerns.",
   },
   {
     id: 4,
-    icon: <FaAward className="text-5xl text-red-600" />,
+    icon: <FaAward className="text-5xl text-color-5" />,
     title: "Award-Winning Team",
-    description: "Our attorneys have been recognized by prestigious legal organizations for their outstanding work and dedication."
+    description:
+      "Our attorneys have been recognized by prestigious legal organizations for their outstanding work and dedication.",
   },
   {
     id: 5,
-    icon: <FaUsers className="text-5xl text-red-600" />,
+    icon: <FaUsers className="text-5xl text-color-5" />,
     title: "Diverse Expertise",
-    description: "Our team of specialists covers a wide range of legal areas, ensuring comprehensive support for all your needs."
+    description:
+      "Our team of specialists covers a wide range of legal areas, ensuring comprehensive support for all your needs.",
   },
   {
     id: 6,
-    icon: <FaGlobe className="text-5xl text-red-600" />,
+    icon: <FaGlobe className="text-5xl text-color-5" />,
     title: "Global Reach",
-    description: "With international partnerships and multilingual staff, we're equipped to handle cases with global implications."
-  }
+    description:
+      "With international partnerships and multilingual staff, we're equipped to handle cases with global implications.",
+  },
 ];
 
 export default function Why() {
   return (
-    <section className="w-full py-24 bg-black">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section
+      className={`w-full py-24 bg-color-5 text-color-1 min-h-screen flex items-center ${montserrat.className}`}
+    >
+      <div className="container mx-auto px-4">
         <motion.h2
-          className="text-5xl font-bold text-white mb-16 text-center"
-          initial={{ opacity: 0, y: -50 }}
+          className="text-5xl font-bold mb-20 text-center text-color-3"
+          initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <span className="text-white">Why</span> <span className="text-red-600">Choose Us</span>
+          Why Choose Us
         </motion.h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-5xl mx-auto">
           {whyChooseUs.map((reason, index) => (
             <motion.div
               key={reason.id}
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
+              className="h-full"
             >
-              <div className="group h-full bg-white shadow-lg rounded-lg overflow-hidden transition-all duration-300 hover:shadow-2xl p-6">
-                <div className="flex justify-center mb-4">
-                  {reason.icon}
-                </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-2 text-center">
-                  {reason.title}
-                </h3>
-                <p className="text-gray-600 text-sm text-center">
-                  {reason.description}
-                </p>
-              </div>
+              <Card className="flex flex-col h-full bg-white border-color-4 shadow-md hover:shadow-lg transition-shadow duration-300">
+                <CardHeader className="text-center pt-8 pb-4 flex-grow">
+                  <div className="mx-auto mb-6 p-4 rounded-full bg-color-5/10 text-color-5">
+                    {reason.icon}
+                  </div>
+                  <CardTitle className="text-2xl font-semibold text-color-2">
+                    {reason.title}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="px-6 pb-8 flex-grow flex items-center">
+                  <p className="text-color-1 text-center text-base">
+                    {reason.description}
+                  </p>
+                </CardContent>
+              </Card>
             </motion.div>
           ))}
         </div>

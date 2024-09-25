@@ -3,24 +3,31 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { Montserrat } from "next/font/google";
+
+const montserrat = Montserrat({ subsets: ["latin"] });
 
 const slides = [
   {
     id: 1,
-    image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    image:
+      "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
     title: "Expert Legal Consultation",
     description:
       "Providing expert legal advice for corporate law and litigation.",
   },
   {
     id: 2,
-    image: "https://images.unsplash.com/photo-1505664194779-8beaceb93744?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    image:
+      "https://images.unsplash.com/photo-1505664194779-8beaceb93744?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
     title: "Protect Your Rights",
-    description: "Defending your rights in personal injury and criminal law cases.",
+    description:
+      "Defending your rights in personal injury and criminal law cases.",
   },
   {
     id: 3,
-    image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    image:
+      "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
     title: "Business Law Solutions",
     description:
       "Comprehensive legal solutions for your business and contracts.",
@@ -44,7 +51,9 @@ export default function Hero() {
   };
 
   return (
-    <div className="relative w-full h-screen pt-16 overflow-hidden bg-gray-100">
+    <div
+      className={`relative w-full h-screen pt-16 overflow-hidden bg-color-1 ${montserrat.className}`}
+    >
       <div className="absolute inset-0">
         <AnimatePresence>
           {slides.map(
@@ -63,20 +72,20 @@ export default function Hero() {
                     backgroundPosition: "center",
                   }}
                 >
-                  <div className="absolute inset-0 bg-gradient-to-r from-gray-900/80 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-color-2/90 to-transparent"></div>
 
-                  <div className="relative z-10 h-full flex flex-col justify-center items-start text-left text-white space-y-8 px-8 md:px-16 lg:px-24 max-w-[700px]">
+                  <div className="relative z-10 h-full flex flex-col justify-center items-start text-left text-color-3 space-y-8 px-8 md:px-16 lg:px-24 max-w-[800px]">
                     <motion.h1
                       initial={{ opacity: 0, y: -30 }}
                       animate={{ opacity: 1, y: 0, transition: { delay: 0.3 } }}
-                      className="text-5xl md:text-7xl font-extrabold text-amber-100"
+                      className="text-5xl md:text-7xl font-extrabold text-color-3 leading-tight"
                     >
                       {slide.title}
                     </motion.h1>
                     <motion.p
                       initial={{ opacity: 0, y: 30 }}
                       animate={{ opacity: 1, y: 0, transition: { delay: 0.5 } }}
-                      className="text-xl md:text-2xl font-light text-gray-200"
+                      className="text-xl md:text-2xl font-light text-color-3 max-w-2xl"
                     >
                       {slide.description}
                     </motion.p>
@@ -84,7 +93,7 @@ export default function Hero() {
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1, transition: { delay: 0.7 } }}
                     >
-                      <Button className="bg-amber-600 text-white px-10 py-5 text-lg rounded-none shadow-lg hover:bg-amber-700 transition-all">
+                      <Button className="bg-color-5 text-color-1 px-10 py-6 text-lg font-semibold rounded-md shadow-lg hover:bg-color-4 hover:text-color-2 transition-all duration-300 transform hover:scale-105">
                         Consult Now
                       </Button>
                     </motion.div>
@@ -95,12 +104,15 @@ export default function Hero() {
         </AnimatePresence>
       </div>
 
-      <div className="absolute bottom-8 left-8 flex space-x-3">
+      <div className="absolute bottom-8 left-8 flex space-x-4">
         {slides.map((_, index) => (
-          <div
+          <button
             key={index}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              currentSlide === index ? "bg-amber-600 scale-125" : "bg-white/50"
+            onClick={() => setCurrentSlide(index)}
+            className={`w-4 h-4 rounded-full transition-all duration-300 ${
+              currentSlide === index
+                ? "bg-color-5 scale-125"
+                : "bg-color-3/50 hover:bg-color-3/75"
             }`}
           />
         ))}

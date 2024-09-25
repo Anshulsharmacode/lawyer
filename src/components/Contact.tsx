@@ -1,65 +1,137 @@
 "use client";
-
-import React from 'react';
+import React from "react";
+import {
+  FaEnvelope,
+  FaPhone,
+  FaFacebook,
+  FaMapMarkerAlt,
+} from "react-icons/fa";
+import { IconType } from "react-icons";
+import Image from "next/image";
 import { motion } from "framer-motion";
-import { FaEnvelope, FaPhone, FaFacebook, FaMapMarkerAlt } from 'react-icons/fa';
+import { Montserrat } from "next/font/google";
 
-const Contact = () => {
+const montserrat = Montserrat({ subsets: ["latin"] });
+
+interface ContactItemProps {
+  icon: IconType;
+  children: React.ReactNode;
+  href?: string;
+}
+
+const ContactItem: React.FC<ContactItemProps> = ({
+  icon: Icon,
+  children,
+  href,
+}) => {
+  const content = href ? (
+    <a
+      href={href}
+      className="hover:text-color-5 transition-colors duration-300"
+    >
+      {children}
+    </a>
+  ) : (
+    <span>{children}</span>
+  );
+
   return (
-    <section className="w-full py-24 bg-black">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.h2
-          className="text-5xl font-bold text-white mb-16 text-center"
+    <motion.div
+      className="flex items-center text-color-3"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
+      <Icon className="w-6 h-6 mr-4 flex-shrink-0 text-color-5" />
+      <span className="text-lg">{content}</span>
+    </motion.div>
+  );
+};
+
+const Contact: React.FC = () => {
+  return (
+    <div
+      className={`min-h-screen bg-gradient-to-b from-color-1 to-color-2 py-24 px-4 sm:px-6 lg:px-8 ${montserrat.className}`}
+    >
+      <div className="max-w-7xl mx-auto">
+        <motion.h1
+          className="text-5xl font-extrabold text-center text-color-3 mb-16"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: 0.8 }}
         >
-          Get in <span className="text-red-600">Touch</span>
-        </motion.h2>
-
+          Get in <span className="text-color-5">Touch</span>
+        </motion.h1>
+        <div className="grid grid-cols-1 md:grid-cols-1 gap-12 items-center">
+          <motion.div
+            className="bg-color-1 shadow-2xl rounded-lg overflow-hidden"
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <div className="p-10">
+              <h2 className="text-3xl font-bold text-center text-color-5 mb-8">
+                Contact Information
+              </h2>
+              <div className="space-y-6">
+                <ContactItem
+                  icon={FaEnvelope}
+                  href="mailto:mkvaidya@example.com"
+                >
+                  mkvaidya@example.com
+                </ContactItem>
+                <ContactItem icon={FaPhone}>9425006403</ContactItem>
+                <ContactItem
+                  icon={FaFacebook}
+                  href="https://www.facebook.com/mkvaidya"
+                >
+                  facebook.com/mkvaidya
+                </ContactItem>
+                <ContactItem icon={FaMapMarkerAlt}>
+                  123 Legal Street, Cityville, State 12345
+                </ContactItem>
+              </div>
+            </div>
+          </motion.div>
+          {/* <motion.div
+            className="relative h-96 rounded-lg overflow-hidden shadow-2xl"
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <Image
+              src="/mk-vaidya.jpg"
+              alt="MK Vaidya's Office"
+              layout="fill"
+              objectFit="cover"
+              className="rounded-lg"
+            />
+          </motion.div> */}
+        </div>
         <motion.div
-          className="bg-gray-800 p-8 rounded-lg shadow-lg mb-12"
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <h3 className="text-3xl font-bold text-white mb-4">Contact Information</h3>
-          <div className="space-y-4">
-            <div className="flex items-center text-white">
-              <FaEnvelope className="w-6 h-6 mr-4" />
-              <a href="mailto:mkvaidya@example.com" className="hover:underline">mkvaidya@example.com</a>
-            </div>
-            <div className="flex items-center text-white">
-              <FaPhone className="w-6 h-6 mr-4" />
-              <span>9425006403</span>
-            </div>
-            <div className="flex items-center text-white">
-              <FaFacebook className="w-6 h-6 mr-4" />
-              <a href="https://www.facebook.com/mkvaidya" className="hover:underline">facebook.com/mkvaidya</a>
-            </div>
-            <div className="flex items-center text-white">
-              <FaMapMarkerAlt className="w-6 h-6 mr-4" />
-              <span>123 Legal Street, Cityville, State 12345</span>
-            </div>
-          </div>
-        </motion.div>
-
-        <motion.div
-          className="mt-12 text-center"
+          className="mt-24 text-center"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8 }}
         >
-          <h2 className="text-4xl font-bold mb-6 text-white">Urgent Matters</h2>
-          <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            If you have an urgent matter to discuss, please don't hesitate to reach out via email at{' '}
-            <a href="mailto:mkvaidya@example.com" className="text-red-600 hover:underline">mkvaidya@example.com</a>.
-            We will do our best to respond as quickly as possible.
+          <h2 className="text-3xl font-bold text-color-5 mb-6">
+            Urgent Matters
+          </h2>
+          <p className="text-color-3 max-w-2xl mx-auto text-lg">
+            If you have an urgent matter to discuss, please don't hesitate to
+            reach out via email at{" "}
+            <a
+              href="mailto:mkvaidya@example.com"
+              className="text-color-5 hover:text-color-4 transition-colors duration-300 font-semibold"
+            >
+              mkvaidya@example.com
+            </a>
+            . We will do our best to respond as quickly as possible.
           </p>
         </motion.div>
       </div>
-    </section>
+    </div>
   );
-}
+};
 
 export default Contact;
