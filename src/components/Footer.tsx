@@ -29,8 +29,8 @@ export default function Footer() {
             <nav className="flex flex-col space-y-2">
               <Link href="/" className="text-gray-400 hover:text-amber-500 transition-colors">Home</Link>
               <Link href="/about" className="text-gray-400 hover:text-amber-500 transition-colors">About Us</Link>
-              <Link href="/services" className="text-gray-400 hover:text-amber-500 transition-colors">Services</Link>
-              <Link href="/practice-areas" className="text-gray-400 hover:text-amber-500 transition-colors">Practice Areas</Link>
+              <Link href="#services" className="text-gray-400 hover:text-amber-500 transition-colors">Services</Link>
+              <Link href="#practice-areas" className="text-gray-400 hover:text-amber-500 transition-colors">Practice Areas</Link>
               <Link href="/contact" className="text-gray-400 hover:text-amber-500 transition-colors">Contact</Link>
             </nav>
           </div>

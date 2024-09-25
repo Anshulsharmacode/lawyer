@@ -53,7 +53,10 @@ const practiceAreas = [
 
 export default function AreasOfExpertise() {
   return (
-    <section className="w-full py-24 bg-gradient-to-b from-gray-50 to-gray-100">
+    <section
+      id="services"
+      className="w-full py-24 bg-gradient-to-b from-gray-50 to-gray-100"
+    >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.h2
           className="text-5xl font-bold text-gray-900 mb-16 text-center"
@@ -89,12 +92,14 @@ export default function AreasOfExpertise() {
                   <CardTitle className="text-xl font-semibold text-gray-800 mb-2">
                     {area.title}
                   </CardTitle>
-                  <p className="text-gray-600 text-sm">
-                    {area.description}
-                  </p>
+                  <p className="text-gray-600 text-sm">{area.description}</p>
                 </CardContent>
                 <CardFooter className="p-6 pt-0">
-                  <Link href={area.link} passHref className="group inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors duration-300">
+                  <Link
+                    href={area.link}
+                    passHref
+                    className="group inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors duration-300"
+                  >
                     <span className="mr-2 text-sm font-medium">Learn More</span>
                     <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
                   </Link>
