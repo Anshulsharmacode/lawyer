@@ -8,7 +8,7 @@ import Footer from "@/components/Footer";
 import Why from "@/components/Why";
 export default function Home() {
   return (
-   <div>
+   <div >
     <Navbar/>
     <Hero/>
     <OurMission/>

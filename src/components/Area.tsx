@@ -5,6 +5,7 @@ import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { Briefcase, Shield } from "lucide-react"; // Importing icons
 
 const practiceAreas = [
   {
@@ -53,15 +54,15 @@ const practiceAreas = [
 
 export default function AreasOfExpertise() {
   return (
-    <section className="w-full py-24 bg-gradient-to-b from-gray-50 to-gray-100">
+    <section className="w-full py-24 bg-black">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.h2
-          className="text-5xl font-bold text-gray-900 mb-16 text-center"
+          className="text-5xl font-bold text-white mb-16 text-center"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          Areas of Expertise
+          <span className="text-white">Areas</span> <span className="text-red-600">of Expertise</span>
         </motion.h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -72,7 +73,7 @@ export default function AreasOfExpertise() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
-              <Card className="group h-full bg-white shadow-md rounded-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
+              <Card className="group h-full bg-white shadow-lg rounded-lg overflow-hidden transition-all duration-300 hover:shadow-2xl">
                 <CardHeader className="p-0">
                   <div className="relative h-48 w-full overflow-hidden">
                     <Image
@@ -82,11 +83,12 @@ export default function AreasOfExpertise() {
                       objectFit="cover"
                       className="transition-transform duration-500 group-hover:scale-105 filter grayscale"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                   </div>
                 </CardHeader>
                 <CardContent className="p-6">
-                  <CardTitle className="text-xl font-semibold text-gray-800 mb-2">
+                  <CardTitle className="text-xl font-semibold text-gray-800 mb-2 flex items-center">
+                    <Briefcase className="mr-2 text-red-600" /> {/* Icon for profession */}
                     {area.title}
                   </CardTitle>
                   <p className="text-gray-600 text-sm">
@@ -94,7 +96,7 @@ export default function AreasOfExpertise() {
                   </p>
                 </CardContent>
                 <CardFooter className="p-6 pt-0">
-                  <Link href={area.link} passHref className="group inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors duration-300">
+                  <Link href={area.link} passHref className="group inline-flex items-center text-red-600 hover:text-red-800 transition-colors duration-300">
                     <span className="mr-2 text-sm font-medium">Learn More</span>
                     <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
                   </Link>
