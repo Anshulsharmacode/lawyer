@@ -54,7 +54,7 @@ export default function Navbar() {
         {/* Logo Section */}
         <div className="flex items-center space-x-4">
           {/* Logo on the left side */}
-          <Image
+          <img
             src={logoSrc}
             alt="Logo"
             width={50}
