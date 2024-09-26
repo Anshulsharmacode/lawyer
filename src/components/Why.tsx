@@ -18,9 +18,9 @@ const whyChooseUs = [
   {
     id: 1,
     icon: <FaBalanceScale className="text-5xl text-color-5" />,
-    title: "50 Years of Experience",
+    title: "25 Years of Experience",
     description:
-      "With half a century of legal expertise, we've successfully handled thousands of cases across various practice areas.",
+      "With 25 years of legal expertise, we've successfully handled hundreds of cases across various practice areas."
   },
   {
     id: 2,

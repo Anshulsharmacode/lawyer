@@ -20,15 +20,6 @@ const About = () => {
       className={`w-full py-24 px-2 md:px-32 bg-color-2 text-color-3 ${montserrat.className}`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* <motion.h1
-          className="text-5xl font-bold mb-16 text-center"
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-        >
-          <span className="text-color-3">About</span>{" "}
-          <span className="text-color-5">MK Vaidya</span>
-        </motion.h1> */}
 
         <motion.div
           className="flex flex-col md:flex-row items-center justify-between mb-16"
@@ -39,7 +30,7 @@ const About = () => {
           <div className="md:w-1/3 mb-8 md:mb-0">
             <Image
               src="/mk-vaidya.jpg"
-              alt="MK Vaidya"
+              alt="Munindra Kumar Vaidya"
               width={400}
               height={400}
               className="rounded-full shadow-2xl border-4 border-color-5"
@@ -47,19 +38,21 @@ const About = () => {
           </div>
           <div className="md:w-2/3 md:pl-12">
             <h2 className="text-3xl font-bold text-color-5 mb-4">
-              Experienced Tax Lawyer
+              Distinguished Tax Advocate
             </h2>
             <p className="text-xl text-color-3 mb-6 leading-relaxed">
-              MK Vaidya is a distinguished tax lawyer with over a decade of
-              experience in navigating the intricate landscape of tax law. His
-              proven track record of providing exceptional legal counsel has
-              made him a trusted advisor to individuals and businesses alike.
+              Munindra Kumar Vaidya is a distinguished tax advocate known for his
+              exceptional expertise in navigating the intricate landscape of tax law.
+              With over 25 years of dedicated experience, Mr. Vaidya has become a
+              trusted advisor for individuals and businesses alike, offering strategic
+              guidance on a wide range of tax-related issues.
             </p>
             <p className="text-xl text-color-3 mb-6 leading-relaxed">
-              With a keen eye for detail and a deep understanding of complex tax
-              regulations, MK Vaidya ensures his clients&apos; rights and
-              interests are protected while maintaining strict compliance with
-              the law.
+              Specializing in tax law, he possesses a deep understanding of both Direct
+              and Indirect tax regulations, including Income Tax, Goods and Services Tax,
+              Sales Tax, Value Added Tax, Excise Duty, and more. His meticulous attention
+              to detail and ability to simplify complex tax concepts make him an invaluable
+              resource for clients facing challenging tax dilemmas.
             </p>
           </div>
         </motion.div>
@@ -81,33 +74,33 @@ const About = () => {
         >
           <ExpertiseCard
             icon={<FaBalanceScale className="text-5xl text-color-5 mb-4" />}
-            title="Tax Compliance"
-            description="Ensuring adherence to all federal and state tax laws with meticulous attention to detail."
+            title="Direct & Indirect Tax"
+            description="Expert in Income Tax, GST, VAT, and Excise Duty, ensuring compliance and strategic planning."
           />
           <ExpertiseCard
             icon={<FaChartLine className="text-5xl text-color-5 mb-4" />}
-            title="Tax Planning"
-            description="Developing sophisticated strategies to minimize tax liabilities and maximize financial efficiency."
+            title="Tax Litigation"
+            description="Successfully represented clients in high-profile tax cases, optimizing their tax positions."
           />
           <ExpertiseCard
             icon={<FaShieldAlt className="text-5xl text-color-5 mb-4" />}
-            title="Representation in Audits"
-            description="Providing robust defense and representation during IRS audits and tax disputes."
+            title="Tax Policy Advocacy"
+            description="Actively involved in shaping tax policy, contributing to industry discussions and publications."
           />
           <ExpertiseCard
             icon={<FaLandmark className="text-5xl text-color-5 mb-4" />}
-            title="Estate Planning"
-            description="Crafting comprehensive estate plans to minimize taxes and protect generational wealth."
+            title="Advisory Roles"
+            description="Ex-President of Bhopal Tax Practitioner Association and member of several tax law organizations."
           />
           <ExpertiseCard
             icon={<FaGlobeAmericas className="text-5xl text-color-5 mb-4" />}
-            title="International Taxation"
-            description="Navigating the complexities of international tax laws and ensuring global compliance."
+            title="Corporate & International Tax"
+            description="Providing strategic tax consulting for businesses and navigating international tax compliance."
           />
           <ExpertiseCard
             icon={<FaBuilding className="text-5xl text-color-5 mb-4" />}
-            title="Corporate Tax Matters"
-            description="Providing strategic advice on tax implications for businesses of all sizes and structures."
+            title="Pro Bono Work"
+            description="Committed to making tax law accessible, offering pro bono legal services for those in need."
           />
         </motion.div>
 
@@ -118,12 +111,11 @@ const About = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
         >
           <h2 className="text-4xl font-bold mb-6 text-color-5">
-            Contact MK Vaidya
+            Contact Munindra Kumar Vaidya
           </h2>
           <p className="text-xl text-color-3 mb-8 max-w-2xl mx-auto">
-            For expert assistance with your tax-related matters, don&apos;t
-            hesitate to reach out. MK Vaidya is ready to provide the guidance
-            you need.
+            For expert assistance with your tax-related matters, don&apos;t hesitate
+            to reach out. Mr. Vaidya is ready to provide the guidance you need.
           </p>
           <a
             href="mailto:adv.mkvaidya@gmail.com"
@@ -143,7 +135,7 @@ const About = () => {
                 d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
               />
             </svg>
-            Email MK Vaidya
+            Email Munindra Kumar Vaidya
           </a>
         </motion.div>
       </div>

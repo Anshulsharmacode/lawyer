@@ -42,7 +42,8 @@ export default function Navbar() {
   const navItems = [
     { href: "/", label: "Home" },
     { href: "/about", label: "About" },
-    { href: "#practice-areas", label: "Practice Areas" },
+    { href: "/practice-areas", label: "Practice Areas" },
+    { href: "/blog", label: "Blog" },
     { href: "/contact", label: "Contact" },
   ];
 

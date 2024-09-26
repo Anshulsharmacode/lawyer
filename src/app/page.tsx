@@ -8,7 +8,7 @@ export default function Home() {
     <div>
       <Hero />
       <OurMission />
-      <AreaOfPractices />
+      {/* <AreaOfPractices /> */}
       <Why />
       {/* <WhatOurClientsSay /> */}
       <Footer />
