@@ -2,8 +2,8 @@
 
 export default function ContactForm() {
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-     event.preventDefault();
-     const form = event.target as HTMLFormElement;
+    event.preventDefault();
+    const form = event.target as HTMLFormElement;
     const formData = new FormData(form);
     try {
       const response = await fetch("/api", {
@@ -24,14 +24,15 @@ export default function ContactForm() {
       alert("Error, please try resubmitting the form");
     }
   }
+
   return (
     <div className="flex flex-col w-full items-center justify-center mb-6">
       <form
         onSubmit={handleSubmit}
-        className="mt-8 mb-2 w-full lg:w-[70%] p-4 rounded-lg text-color-3 bg-color-1"
+        className="mt-8 mb-2 w-full lg:w-[70%] p-6 rounded-lg text-color-3 bg-color-1 shadow-lg"
       >
-        <div className="mb-4 flex flex-col w-500 text-color-4">
-          <label htmlFor="form-name" className="mb-2">
+        <div className="mb-6 flex flex-col w-full text-color-4">
+          <label htmlFor="form-name" className="mb-2 font-semibold">
             Name
           </label>
           <input
@@ -39,20 +40,19 @@ export default function ContactForm() {
             autoComplete="name"
             maxLength={50}
             name="name"
-            className="p-2 mb-4 rounded-md text-color-5 bg-color-2"
+            className="p-3 mb-4 rounded-md text-color-5 bg-color-2 border border-color-3 focus:outline-none focus:ring-2 focus:ring-color-5"
           />
-          <label htmlFor="form-name" className="mb-2">
+          <label htmlFor="form-phone" className="mb-2 font-semibold">
             Phone*
           </label>
           <input
-            id="form-name"
-            autoComplete="name"
-            maxLength={50}
+            id="form-phone"
+            autoComplete="tel"
+            maxLength={15}
             name="phone"
-            className="p-2 mb-4 rounded-md text-color-5 bg-color-2"
+            className="p-3 mb-4 rounded-md text-color-5 bg-color-2 border border-color-3 focus:outline-none focus:ring-2 focus:ring-color-5"
           />
-
-          <label htmlFor="form-email" className="mb-2 text-color-4">
+          <label htmlFor="form-email" className="mb-2 font-semibold">
             Email
           </label>
           <input
@@ -62,10 +62,9 @@ export default function ContactForm() {
             maxLength={80}
             name="email"
             type="email"
-            className="p-2 mb-4 rounded-md text-color-5 bg-color-2"
+            className="p-3 mb-4 rounded-md text-color-5 bg-color-2 border border-color-3 focus:outline-none focus:ring-2 focus:ring-color-5"
           />
-
-          <label htmlFor="form-message" className="mb-2 text-color-4">
+          <label htmlFor="form-message" className="mb-2 font-semibold">
             Message
           </label>
           <textarea
@@ -73,11 +72,11 @@ export default function ContactForm() {
             required
             name="message"
             rows={5}
-            className="p-2 rounded-md text-color-5 bg-color-2"
+            className="p-3 rounded-md text-color-5 bg-color-2 border border-color-3 focus:outline-none focus:ring-2 focus:ring-color-5"
           />
         </div>
         <button
-          className="rounded p-2 text-color-2 font-semibold bg-color-5"
+          className="w-full rounded p-3 text-color-1 font-semibold bg-color-5 hover:bg-color-4 transition-all duration-300"
           type="submit"
         >
           Send

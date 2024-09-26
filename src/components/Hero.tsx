@@ -9,8 +9,7 @@ const montserrat = Montserrat({ subsets: ["latin"] });
 const slides = [
   {
     id: 1,
-    image:
-      "/123.jpg",
+    image: "/123.jpg",
     title: "Expert Legal Consultation",
     description:
       "providing expert legal advice for IT & GST Return filing, Tax and Corporate Litigation before IT Tribunal, GST Tribunal, High Court of Madhya Pradesh etc",
@@ -91,10 +90,15 @@ export default function Hero() {
                     <motion.div
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1, transition: { delay: 0.7 } }}
-                      className="flex justify-end w-full"
+                      className="flex justify-start w-full" // Changed justify-end to justify-start
                     >
-                      <button 
-                        onClick={() => window.open("https://cal.com/m.k.-vaidya-associates", "_blank")} 
+                      <button
+                        onClick={() =>
+                          window.open(
+                            "https://cal.com/m.k.-vaidya-associates",
+                            "_blank"
+                          )
+                        }
                         className="bg-color-5 text-color-1 px-10 py-6 text-lg font-semibold rounded-md shadow-lg hover:bg-color-4 hover:text-color-2 transition-all duration-300 transform hover:scale-105"
                       >
                         Consult Now

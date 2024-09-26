@@ -1,20 +1,25 @@
 /* eslint-disable react/no-unescaped-entities */
-"use client"
+"use client";
 import { useState, useEffect } from "react";
 
 const DisclaimerPopup = () => {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
     const acceptedDisclaimer = localStorage.getItem("disclaimerAccepted");
     if (!acceptedDisclaimer) {
       setIsVisible(true);
+      document.body.style.overflow = "hidden"; // Prevent background scroll
     }
+    return () => {
+      document.body.style.overflow = "auto"; // Re-enable background scroll
+    };
   }, []);
 
   const handleAccept = () => {
     localStorage.setItem("disclaimerAccepted", "true");
     setIsVisible(false);
+    document.body.style.overflow = "auto"; // Re-enable background scroll
   };
 
   const handleDisagree = () => {
@@ -24,8 +29,8 @@ const DisclaimerPopup = () => {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed top-0 left-0 w-full h-screen z-50 flex items-center justify-center backdrop-blur-xl p-5">
-      <div className="p-8 rounded-lg shadow-lg text-center max-w-lg w-full h-full mx-4 bg-color-2 border-2 border-color-5 overflow-y-auto">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-5 backdrop-blur-xl">
+      <div className="p-8 rounded-lg shadow-lg text-center max-w-3xl w-full mx-4 bg-color-2 border-2 border-color-5 overflow-y-auto max-h-screen">
         <h2 className="text-2xl font-semibold mb-4 text-color-4">Disclaimer</h2>
         <p className="mb-6 text-color-5 text-left">
           <strong>User Acknowledgement:</strong> By proceeding further and
