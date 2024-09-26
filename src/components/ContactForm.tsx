@@ -41,6 +41,16 @@ export default function ContactForm() {
             name="name"
             className="p-2 mb-4 rounded-md text-color-5 bg-color-2"
           />
+          <label htmlFor="form-name" className="mb-2">
+            Phone*
+          </label>
+          <input
+            id="form-name"
+            autoComplete="name"
+            maxLength={50}
+            name="phone"
+            className="p-2 mb-4 rounded-md text-color-5 bg-color-2"
+          />
 
           <label htmlFor="form-email" className="mb-2 text-color-4">
             Email

@@ -28,6 +28,7 @@ export async function POST(request) {
       const name = formData.get('name')
       const email = formData.get('email')
       const message = formData.get('message')
+      const phone = formData.get("phone")
 
       await transporter.sendMail({
          from: username,
@@ -38,6 +39,7 @@ export async function POST(request) {
             <p>Name: ${name} </p>
             <p>Email: ${email} </p>
             <p>Message: ${message} </p>
+            <p>Phone: ${phone} </p>
             `,
       })
 
