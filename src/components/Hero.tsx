@@ -94,9 +94,9 @@ export default function Hero() {
                       animate={{ opacity: 1, transition: { delay: 0.7 } }}
                       className="flex justify-end w-full"
                     >
-                      <Button className="bg-color-5 text-color-1 px-10 py-6 text-lg font-semibold rounded-md shadow-lg hover:bg-color-4 hover:text-color-2 transition-all duration-300 transform hover:scale-105">
+                      <a href="https://cal.com/m.k.-vaidya-associates" target="_blank" rel="noopener noreferrer" className="bg-color-5 text-color-1 px-10 py-6 text-lg font-semibold rounded-md shadow-lg hover:bg-color-4 hover:text-color-2 transition-all duration-300 transform hover:scale-105">
                         Consult Now
-                      </Button>
+                      </a>
                     </motion.div>
                   </div>
                 </motion.div>
