@@ -1,12 +1,16 @@
-"use client"
-import { useState } from 'react';
-import { FaBars, FaTimes } from 'react-icons/fa';
-import { motion } from 'framer-motion';
-import { Button } from '@/components/ui/button';
-import Link from 'next/link';
+"use client";
+import { useState } from "react";
+import { FaBars, FaTimes } from "react-icons/fa";
+import { motion } from "framer-motion";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Montserrat } from "next/font/google";
+
+const montserrat = Montserrat({ subsets: ["latin"] });
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
 
   // Toggle the menu open/close
   const toggleMenu = () => {
@@ -25,7 +29,7 @@ export default function Navbar() {
     },
     closed: {
       opacity: 0,
-      x: '-100%',
+      x: "-100%",
       transition: {
         duration: 0.4,
         ease: [0.6, -0.05, 0.01, 0.99],
@@ -33,42 +37,45 @@ export default function Navbar() {
     },
   };
 
+  const navItems = [
+    { href: "/", label: "Home" },
+    { href: "/about", label: "About" },
+    { href: "/services", label: "Services" },
+    { href: "/contact", label: "Contact" },
+  ];
+
   return (
-    <nav className="bg-white border-b shadow-lg fixed z-50 w-full">
-      <div className="container mx-auto flex justify-between items-center py-4 px-6">
+    <nav className={`bg-color-1 shadow-lg z-50 w-full ${montserrat.className}`}>
+      <div className="container mx-auto flex flex-col items-center py-4 px-8">
         {/* Logo */}
-        <div className="text-2xl font-bold text-blue-800">Law Firm</div>
+        <div className="text-3xl font-bold text-color-4 tracking-wide mb-4">
+          MK Vaidya
+        </div>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-8 items-center">
-          <Link
-            href="#services"
-            className="text-gray-600 hover:text-blue-800 transition-colors duration-300"
-          >
-            Services
-          </Link>
-          <Link
-            href="/about"
-            className="text-gray-600 hover:text-blue-800 transition-colors duration-300"
-          >
-            About Us
-          </Link>
-          <Link
-            href="/contact"
-            className="text-gray-600 hover:text-blue-800 transition-colors duration-300"
-          >
-            Contact
-          </Link>
-          <Button className="bg-blue-600 text-white px-6 py-2 rounded-lg shadow-md hover:bg-blue-700 transition-all">
-            Schedule Consultation
-          </Button>
+          {navItems.map((item) => (
+            <div key={item.href} className="relative">
+              <Link
+                href={item.href}
+                className={`text-color-3 hover:text-color-4 transition-colors duration-300 text-lg font-medium ${
+                  pathname === item.href ? "text-color-4" : ""
+                }`}
+              >
+                {item.label}
+              </Link>
+              {pathname === item.href && (
+                <div className="absolute bottom-[-8px] left-0 w-full h-1 bg-color-5"></div>
+              )}
+            </div>
+          ))}
         </div>
 
         {/* Hamburger Icon for Mobile */}
-        <div className="md:hidden flex items-center">
+        <div className="md:hidden absolute right-8 top-6">
           <button
             onClick={toggleMenu}
-            className="text-gray-800 text-2xl focus:outline-none"
+            className="text-color-3 text-3xl focus:outline-none p-2"
           >
             {isOpen ? <FaTimes /> : <FaBars />}
           </button>
@@ -77,36 +84,24 @@ export default function Navbar() {
 
       {/* Mobile Menu (Framer Motion animation) */}
       <motion.div
-        className="fixed top-[64px] left-0 z-50 h-screen w-[70%] bg-white shadow-lg md:hidden"
+        className="fixed top-[88px] left-0 z-50 h-screen w-full bg-color-2 shadow-lg md:hidden"
         initial={false}
         animate={isOpen ? "open" : "closed"}
         variants={menuVariants}
       >
-        <div className="flex flex-col items-center space-y-6 py-8">
-          <Link
-            href="#services"
-            onClick={toggleMenu}
-            className="text-gray-800 text-lg hover:text-blue-800"
-          >
-            Services
-          </Link>
-          <Link
-            href="/about"
-            onClick={toggleMenu}
-            className="text-gray-800 text-lg hover:text-blue-800"
-          >
-            About Us
-          </Link>
-          <Link
-            href="/contact"
-            onClick={toggleMenu}
-            className="text-gray-800 text-lg hover:text-blue-800"
-          >
-            Contact
-          </Link>
-          <Button className="bg-blue-600 text-white w-11/12 py-2 rounded-lg shadow-md hover:bg-blue-700 transition-all">
-            Schedule Consultation
-          </Button>
+        <div className="flex flex-col items-center space-y-8 py-12">
+          {navItems.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              onClick={toggleMenu}
+              className={`text-color-4 text-xl font-medium hover:text-color-5 transition-colors duration-300 ${
+                pathname === item.href ? "text-color-5" : ""
+              }`}
+            >
+              {item.label}
+            </Link>
+          ))}
         </div>
       </motion.div>
     </nav>
