@@ -65,6 +65,10 @@ export default function Footer() {
                   href="/about"
                   className="text-color-3 hover:text-color-4 transition-colors"
                 >
+                 <Link
+                  href="/blog"
+                  className="text-color-3 hover:text-color-4 transition-colors"
+                ></Link>
                   About Us
                 </Link>
                 <Link
@@ -98,7 +102,7 @@ export default function Footer() {
                 behind Hotel Nisarga, Bhopal
               </p>
               <p className="text-color-3 mb-2">Madhya Pradesh, India</p>
-              <p className="text-color-3 mb-2">Phone: +1 (555) 123-4567</p>
+              <p className="text-color-3 mb-2">Phone: +91 9425006403</p>
               <p className="text-color-3 mb-2">Email: adv.mkvaidya@gmail.com</p>
             </div>
           </motion.div>

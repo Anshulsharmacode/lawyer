@@ -41,18 +41,38 @@ const About = () => {
               Distinguished Tax Advocate
             </h2>
             <p className="text-xl text-color-3 mb-6 leading-relaxed">
-              Munindra Kumar Vaidya is a distinguished tax advocate known for his
-              exceptional expertise in navigating the intricate landscape of tax law.
-              With over 25 years of dedicated experience, Mr. Vaidya has become a
-              trusted advisor for individuals and businesses alike, offering strategic
-              guidance on a wide range of tax-related issues.
+              Shri. Munindra Kumar Vaidya is a distinguished tax advocate known for his
+              exceptional expertise in navigating the intricate landscape of tax law. With
+              over 25 years of dedicated experience, Mr. Vaidya has become a trusted advisor
+              for individuals and businesses alike, offering strategic guidance on a wide range
+              of tax-related issues.
             </p>
             <p className="text-xl text-color-3 mb-6 leading-relaxed">
-              Specializing in tax law, he possesses a deep understanding of both Direct
-              and Indirect tax regulations, including Income Tax, Goods and Services Tax,
-              Sales Tax, Value Added Tax, Excise Duty, and more. His meticulous attention
-              to detail and ability to simplify complex tax concepts make him an invaluable
-              resource for clients facing challenging tax dilemmas.
+              Specializing in tax law, he possesses a deep understanding of both Direct and Indirect
+              tax regulations including Income Tax, Goods and Services Tax, Sales Tax, Value Added Tax,
+              Excise Duty, and more. Mr. Vaidya is renowned for his meticulous attention to detail and ability
+              to simplify complex tax concepts, making him an invaluable resource for clients facing
+              challenging tax dilemmas.
+            </p>
+            <p className="text-xl text-color-3 mb-6 leading-relaxed">
+              Throughout his career, Mr. Vaidya has successfully represented clients in numerous
+              high-profile cases, ensuring compliance and optimizing tax positions. His expertise
+              and dedication to the field have earned him several prestigious positions, including
+              serving as the Ex-President of the Bhopal Tax Practitioner Association and an Executive
+              Member of both the M.P. Tax Law Bar Association and the Tax Law Bar Association, Bhopal.
+            </p>
+            <p className="text-xl text-color-3 mb-6 leading-relaxed">
+              He also contributes his expertise as a Special Invitee and GST Consultant to the Bhopal
+              Chamber of Commerce and Industries. He is a proud member of the Confederation of All
+              India Traders, further showcasing his commitment to the business community.
+            </p>
+            <p className="text-xl text-color-3 mb-6 leading-relaxed">
+              Mr. Vaidya is also actively involved in tax policy discussions and has contributed to
+              various news publications, sharing his invaluable insights to navigate the
+              ever-evolving tax landscape. His commitment to pro bono work exemplifies his belief in
+              making tax law accessible to all. With a reputation for integrity and a results-oriented
+              approach, Mr. Vaidya continues to set the standard in tax advocacy, helping clients achieve
+              their financial goals while ensuring compliance with the law.
             </p>
           </div>
         </motion.div>

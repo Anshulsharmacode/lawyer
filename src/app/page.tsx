@@ -1,8 +1,8 @@
 import Hero from "@/components/Hero";
 import OurMission from "@/components/Ourmisson";
-import AreaOfPractices from "@/components/Areaa";
 import Footer from "@/components/Footerr";
 import Why from "@/components/Why";
+import WhatOurClientsSay from "@/components/Testim"
 import { Roboto } from 'next/font/google';
 
 export default function Home() {
@@ -12,7 +12,7 @@ export default function Home() {
       <OurMission />
       {/* <AreaOfPractices /> */}
       <Why />
-      {/* <WhatOurClientsSay /> */}
+      {/* <WhatOurClientsSay/> */}
       <Footer />
     </div>
   );
