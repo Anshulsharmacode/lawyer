@@ -23,7 +23,7 @@ export default function Footer() {
           <span className="text-color-3">Connect</span>{" "}
           <span className="text-color-5">With Us</span>
         </motion.h2>
-        
+
         <ContactForm/>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -68,7 +68,7 @@ export default function Footer() {
                   About Us
                 </Link>
                 <Link
-                  href="/practice-areas"
+                  href="#practice-areas"
                   className="text-color-3 hover:text-color-4 transition-colors"
                 >
                   Practice Areas
