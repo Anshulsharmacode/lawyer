@@ -4,9 +4,7 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Montserrat ,Cinzel } from "next/font/google";
-import { Roboto } from 'next/font/google';
-
+import { Montserrat, Cinzel } from "next/font/google";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -45,7 +43,7 @@ export default function Navbar() {
     { href: "/", label: "Home" },
     { href: "/about", label: "About" },
     { href: "/practice-areas", label: "Practice Areas" },
-    { href: "/blog", label: "Blog" },
+    { href: "/blogs", label: "Blogs" },
     { href: "/contact", label: "Contact" },
   ];
 
