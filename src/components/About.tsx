@@ -126,7 +126,7 @@ const About = () => {
             you need.
           </p>
           <a
-            href="mailto:mkvaidya@example.com"
+            href="mailto:adv.mkvaidya@gmail.com"
             className="bg-color-5 text-color-3 text-xl px-10 py-4 rounded-full shadow-lg hover:bg-color-4 transition-all inline-flex items-center"
           >
             <svg

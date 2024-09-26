@@ -1,24 +1,26 @@
 import { NextResponse } from 'next/server'
 import nodemailer from 'nodemailer'
 
+
+
 export async function POST(request) {
    try {
 
-      const username = process.env.NEXT_PUBLIC_BURNER_USERNAME;
-      const password = process.env.NEXT_PUBLIC_BURNER_PASSWORD;
-      const myEmail = process.env.NEXT_PUBLIC_PERSONAL_EMAIL;
+      const username = process.env.EMAIL_USERNAME;
+      const password = process.env.EMAIL_PASSWORD;
+      const myEmail = process.env.PERSONAL_EMAIL;
 
       const transporter = nodemailer.createTransport({
-         host: "smtp-mail.outlook.com",
-         port: 587,
-         tls: {
-            ciphers: "SSLv3",
-            rejectUnauthorized: false,
-         },
-
+         service: 'gmail',
+         host: "smtp.gmail.com",
+         port: 465,
+         secure: true,
          auth: {
             user: username,
             pass: password
+         },
+         tls: {
+            rejectUnauthorized: false
          }
       });
 
@@ -46,3 +48,7 @@ export async function POST(request) {
       NextResponse.status(500).json({ message: "COULD NOT SEND MESSAGE" })
    }
 };
+
+export async function GET(){
+   return NextResponse.json({ message: "Success: msg was sent" })
+}

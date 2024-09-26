@@ -4,9 +4,9 @@ const nextConfig = {
       domains: ['images.unsplash.com'], // Allow images from Unsplash
   },
   env: {
-    NEXT_PUBLIC_EMAIL_USERNAME:"secret.account@outlook.com",
-    NEXT_PUBLIC_EMAIL_PASSWORD : "password123",
-    NEXT_PUBLIC_PERSONAL_EMAIL : "myemail@gmail.com",
+    EMAIL_USERNAME:"paras11917@gmail.com",
+    EMAIL_PASSWORD: "opam emti vpee egrq",
+    PERSONAL_EMAIL : "paras11917@gmail.com",
   }
   };
   

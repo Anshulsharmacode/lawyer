@@ -1,13 +1,12 @@
 "use client";
-import Link from "next/link";
 
-export default function Contact() {
+export default function ContactForm() {
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
      event.preventDefault();
      const form = event.target as HTMLFormElement;
     const formData = new FormData(form);
     try {
-      const response = await fetch("/api/contact", {
+      const response = await fetch("/api", {
         method: "post",
         body: formData,
       });
@@ -26,26 +25,26 @@ export default function Contact() {
     }
   }
   return (
-    <main className="flex min-h-screen flex-col items-center">
-      <div className="relative flex place-items-center p-5 bg-white text-black">
-        <Link href="/">Home</Link>
-      </div>
-
+    <div className="flex flex-col w-full items-center justify-center mb-6">
       <form
         onSubmit={handleSubmit}
-        className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96"
+        className="mt-8 mb-2 w-full lg:w-[70%] p-4 rounded-lg text-color-3 bg-color-1"
       >
-        <div className="mb-4 flex flex-col w-500">
-          <label htmlFor="form-name">Name </label>
+        <div className="mb-4 flex flex-col w-500 text-color-4">
+          <label htmlFor="form-name" className="mb-2">
+            Name
+          </label>
           <input
             id="form-name"
             autoComplete="name"
             maxLength={50}
             name="name"
-            className="text-black"
+            className="p-2 mb-4 rounded-md text-color-5 bg-color-2"
           />
 
-          <label htmlFor="form-email"> Email:</label>
+          <label htmlFor="form-email" className="mb-2 text-color-4">
+            Email
+          </label>
           <input
             id="form-email"
             required
@@ -53,22 +52,27 @@ export default function Contact() {
             maxLength={80}
             name="email"
             type="email"
-            className="text-black"
+            className="p-2 mb-4 rounded-md text-color-5 bg-color-2"
           />
 
-          <label htmlFor="form-message"> Message: </label>
+          <label htmlFor="form-message" className="mb-2 text-color-4">
+            Message
+          </label>
           <textarea
             id="form-message"
             required
             name="message"
             rows={5}
-            className="text-black"
+            className="p-2 rounded-md text-color-5 bg-color-2"
           />
         </div>
-        <button className=" rounded bg-sky-400" type="submit">
+        <button
+          className="rounded p-2 text-color-2 font-semibold bg-color-5"
+          type="submit"
+        >
           Send
         </button>
       </form>
-    </main>
+    </div>
   );
 }
