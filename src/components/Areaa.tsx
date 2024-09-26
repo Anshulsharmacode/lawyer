@@ -65,6 +65,7 @@ const practiceAreas = [
 export default function AreasOfExpertise() {
   return (
     <section
+      id="practice-areas"
       className={`w-full py-24 bg-color-2 text-color-3 ${montserrat.className}`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
