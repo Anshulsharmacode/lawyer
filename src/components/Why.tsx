@@ -53,7 +53,7 @@ const whyChooseUs = [
   {
     id: 6,
     icon: <FaGlobe className="text-5xl text-color-5" />,
-    title: "Global Reach",
+    title: "Pan India Reach",
     description:
       "With international partnerships and multilingual staff, we're equipped to handle cases with global implications.",
   },
