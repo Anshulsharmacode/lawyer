@@ -14,51 +14,51 @@ import { Briefcase } from "lucide-react";
 const practiceAreas = [
   {
     id: 1,
-    title: "Corporate Tax Planning",
+    title: "Income Tax Return Filing",
     description: "Optimize your business tax strategy",
     image:
       "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    link: "/corporate-tax-planning",
+    link: "practice-areas/corporate-tax-planning",
   },
   {
     id: 2,
-    title: "Tax Dispute Resolution",
+    title: "GST Return Filing",
     description: "Expert representation in tax conflicts",
     image:
       "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    link: "/tax-dispute-resolution",
+    link: "practice-areas/tax-dispute-resolution",
   },
   {
     id: 3,
-    title: "International Taxation",
+    title: "Tax Dispute Resolution",
     description: "Navigate global tax complexities",
     image:
       "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    link: "/international-taxation",
+    link: "practice-areas/international-taxation",
   },
   {
     id: 4,
-    title: "Tax Audit Defense",
+    title: "Corporate Tax Services",
     description: "Protect your interests during audits",
     image:
       "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    link: "/tax-audit-defense",
+    link: "practice-areas/tax-audit-defense",
   },
   {
     id: 5,
-    title: "Estate & Gift Tax Planning",
+    title: "Tax Audit Service",
     description: "Secure your legacy and assets",
     image:
       "https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    link: "/estate-gift-tax-planning",
+    link: "practice-areas/estate-gift-tax-planning",
   },
   {
     id: 6,
-    title: "Small Business Tax Strategies",
-    description: "Tailored solutions for growing businesses",
+    title: "Accounting Services",
+    description: "Accounting Services",
     image:
       "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    link: "/small-business-tax-strategies",
+    link: "practice-areas/small-business-tax-strategies",
   },
 ];
 
@@ -107,7 +107,7 @@ export default function AreasOfExpertise() {
                     {area.description}
                   </p>
                   <Link
-                    href={area.link}
+                    href={`practice-areas/${area.id}`}
                     className="group inline-flex items-center text-color-5 hover:text-color-4 transition-colors duration-300"
                   >
                     <span className="mr-2 text-sm font-medium">Learn More</span>
