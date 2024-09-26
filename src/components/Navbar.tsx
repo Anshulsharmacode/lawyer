@@ -4,12 +4,14 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Montserrat ,Cinzel } from "next/font/google";
+import { Montserrat, Cinzel } from "next/font/google";
+import Image from "next/image";
 
-
+// Google fonts
 const montserrat = Montserrat({ subsets: ["latin"] });
-
 const cinzel = Cinzel({ subsets: ["latin"] });
+
+const logoSrc = "/logo.png";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -50,15 +52,27 @@ export default function Navbar() {
 
   return (
     <nav className={`bg-color-1 shadow-lg z-50 w-full ${montserrat.className}`}>
-      <div className="container mx-auto flex flex-col items-center py-4 px-8">
-        {/* Logo */}
-        <div
-          className={`text-[35px] font-weight-[400] leading-[35px] text-color-4 tracking-[1px] mb-4 ${cinzel.className}`}
-        >
-          <span className="underline underline-offset-4">
-            Munindra Kumar Vaidya
-          </span>{" "}
-          & <span className="underline underline-offset-4">Associates</span>
+      <div className="container mx-auto flex items-center justify-between py-4 px-8">
+        {/* Logo Section */}
+        <div className="flex items-center space-x-4">
+          {/* Logo on the left side */}
+          <Image
+            src={logoSrc}
+            alt="Logo"
+            width={50}
+            height={50}
+            className="object-contain"
+          />
+
+          {/* Company Name (Responsive Font Size) */}
+          <div
+            className={`text-[30px] md:text-[35px] font-weight-[400] leading-[35px] text-color-4 tracking-[1px] ${cinzel.className}`}
+          >
+            <span className="underline underline-offset-4">
+              Munindra Kumar Vaidya
+            </span>{" "}
+            & <span className="underline underline-offset-4">Associates</span>
+          </div>
         </div>
 
         {/* Desktop Menu */}
@@ -78,6 +92,17 @@ export default function Navbar() {
               )}
             </div>
           ))}
+        </div>
+
+        {/* Schedule a Call Button */}
+        <div className="hidden md:flex items-center">
+          <Link
+            href="https://cal.com/m.k.-vaidya-associates"
+            target="_blank"
+            className="bg-color-4 text-white py-2 px-6 rounded-full shadow-lg hover:bg-color-5 transition duration-300 transform hover:scale-105"
+          >
+            Schedule a Call
+          </Link>
         </div>
 
         {/* Hamburger Icon for Mobile */}
@@ -111,6 +136,15 @@ export default function Navbar() {
               {item.label}
             </Link>
           ))}
+
+          {/* Schedule a Call Button (Mobile) */}
+          <Link
+            href="https://cal.com/m.k.-vaidya-associates"
+            target="_blank"
+            className="bg-color-4 text-white py-2 px-6 rounded-full shadow-lg hover:bg-color-5 transition duration-300 transform hover:scale-105"
+          >
+            Schedule a Call
+          </Link>
         </div>
       </motion.div>
     </nav>

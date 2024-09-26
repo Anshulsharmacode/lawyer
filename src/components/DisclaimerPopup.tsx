@@ -17,6 +17,10 @@ const DisclaimerPopup = () => {
     setIsVisible(false);
   };
 
+  const handleDisagree = () => {
+    window.close();
+  };
+
   if (!isVisible) return null;
 
   return (
@@ -37,7 +41,7 @@ const DisclaimerPopup = () => {
         <p className="mb-6 text-color-5 text-left">
           <strong>Disclaimer:</strong> This knowledge-site
           (www.mkvaidyaassociates.com) is owned and operated by Munindra Kumar
-          Vaidya & Associates (“M. K. VAIDYA & ASSOCIATES”), and is a resource
+          Vaidya & Associates ("M. K. VAIDYA & ASSOCIATES"), and is a resource
           for your informational and educational purposes only.
         </p>
         <p className="mb-6 text-color-5 text-left">
@@ -63,7 +67,7 @@ const DisclaimerPopup = () => {
           links may be provided on this knowledge-site.
         </p>
         <p className="mb-6 text-color-5 text-left">
-          <strong>No Legal Advice:</strong> By clicking ‘I agree’ and proceeding
+          <strong>No Legal Advice:</strong> By clicking 'I agree' and proceeding
           further, you acknowledge, represent and undertake that you on your own
           accord wish to know more about M. K. VAIDYA & ASSOCIATES, its
           capabilities and research content and information contained on the
@@ -76,12 +80,20 @@ const DisclaimerPopup = () => {
           legal counsel licensed to practice the relevant law in the appropriate
           jurisdiction.
         </p>
-        <button
-          onClick={handleAccept}
-          className="px-4 py-2 sticky bottom-0 left-0 rounded bg-color-5 font-semibold text-color-1"
-        >
-          I HAVE READ THE DISCLAIMER AND AGREE TO IT
-        </button>
+        <div className="flex justify-between mt-6">
+          <button
+            onClick={handleAccept}
+            className="px-4 py-2 rounded bg-color-5 font-semibold text-color-1"
+          >
+            I HAVE READ THE DISCLAIMER AND AGREE TO IT
+          </button>
+          <button
+            onClick={handleDisagree}
+            className="px-4 py-2 rounded bg-red-500 font-semibold text-color-1"
+          >
+            I DISAGREE
+          </button>
+        </div>
       </div>
     </div>
   );
