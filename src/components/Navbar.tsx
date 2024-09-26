@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Montserrat ,Cinzel } from "next/font/google";
+import { Roboto } from 'next/font/google';
+
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
