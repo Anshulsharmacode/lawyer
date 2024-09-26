@@ -7,7 +7,6 @@ import {
   FaMapMarkerAlt,
 } from "react-icons/fa";
 import { IconType } from "react-icons";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { Montserrat } from "next/font/google";
 
@@ -118,8 +117,8 @@ const Contact: React.FC = () => {
             Urgent Matters
           </h2>
           <p className="text-color-3 max-w-2xl mx-auto text-lg">
-            If you have an urgent matter to discuss, please don't hesitate to
-            reach out via email at{" "}
+            If you have an urgent matter to discuss, please don&apos;t hesitate
+            to reach out via email at{" "}
             <a
               href="mailto:mkvaidya@example.com"
               className="text-color-5 hover:text-color-4 transition-colors duration-300 font-semibold"

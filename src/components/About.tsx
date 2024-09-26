@@ -57,8 +57,9 @@ const About = () => {
             </p>
             <p className="text-xl text-color-3 mb-6 leading-relaxed">
               With a keen eye for detail and a deep understanding of complex tax
-              regulations, MK Vaidya ensures his clients' rights and interests
-              are protected while maintaining strict compliance with the law.
+              regulations, MK Vaidya ensures his clients&apos; rights and
+              interests are protected while maintaining strict compliance with
+              the law.
             </p>
           </div>
         </motion.div>
@@ -120,8 +121,9 @@ const About = () => {
             Contact MK Vaidya
           </h2>
           <p className="text-xl text-color-3 mb-8 max-w-2xl mx-auto">
-            For expert assistance with your tax-related matters, don't hesitate
-            to reach out. MK Vaidya is ready to provide the guidance you need.
+            For expert assistance with your tax-related matters, don&apos;t
+            hesitate to reach out. MK Vaidya is ready to provide the guidance
+            you need.
           </p>
           <a
             href="mailto:mkvaidya@example.com"

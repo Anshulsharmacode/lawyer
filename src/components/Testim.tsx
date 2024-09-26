@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
@@ -9,8 +9,10 @@ const testimonials = [
     id: 1,
     name: "Ananya Sharma",
     title: "CEO of Tech Innovations",
-    quote: "The legal team helped us navigate a complex tax situation effortlessly. Their expertise was invaluable!",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+    quote:
+      "The legal team helped us navigate a complex tax situation effortlessly. Their expertise was invaluable!",
+    image:
+      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
   },
   // ... (other testimonials)
 ];
@@ -35,7 +37,8 @@ export default function WhatOurClientsSay() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <span className="text-white">What Our</span> <span className="text-red-600">Clients Say</span>
+          <span className="text-white">What Our</span>{" "}
+          <span className="text-red-600">Clients Say</span>
         </motion.h2>
 
         <div className="relative h-[600px] overflow-hidden">
@@ -44,14 +47,22 @@ export default function WhatOurClientsSay() {
               <motion.div
                 key={testimonial.id}
                 className="absolute w-64 h-96 top-1/2 left-1/2"
-                initial={{ 
-                  x: index === currentIndex ? "-50%" : `${(index - currentIndex) * 100}%`,
+                initial={{
+                  x:
+                    index === currentIndex
+                      ? "-50%"
+                      : `${(index - currentIndex) * 100}%`,
                   y: "-50%",
                   rotateY: index === currentIndex ? 0 : 45,
                   z: index === currentIndex ? 0 : -100,
                 }}
-                animate={{ 
-                  x: `${((index - currentIndex + testimonials.length) % testimonials.length - 2) * 100}%`,
+                animate={{
+                  x: `${
+                    (((index - currentIndex + testimonials.length) %
+                      testimonials.length) -
+                      2) *
+                    100
+                  }%`,
                   y: "-50%",
                   rotateY: index === currentIndex ? 0 : 45,
                   z: index === currentIndex ? 0 : -100,
@@ -68,10 +79,16 @@ export default function WhatOurClientsSay() {
                         objectFit="cover"
                       />
                     </div>
-                    <h3 className="text-xl font-semibold text-gray-800 text-center">{testimonial.name}</h3>
-                    <p className="text-gray-600 text-center">{testimonial.title}</p>
+                    <h3 className="text-xl font-semibold text-gray-800 text-center">
+                      {testimonial.name}
+                    </h3>
+                    <p className="text-gray-600 text-center">
+                      {testimonial.title}
+                    </p>
                   </div>
-                  <p className="text-gray-800 text-sm italic leading-relaxed text-center">"{testimonial.quote}"</p>
+                  <p className="text-gray-800 text-sm italic leading-relaxed text-center">
+                    &ldquo;{testimonial.quote}&ldquo;
+                  </p>
                 </div>
               </motion.div>
             ))}
