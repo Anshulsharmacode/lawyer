@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram } from "react-icons/fa";
 import Link from "next/link";
 import { Montserrat } from "next/font/google";
+import ContactForm from "./ContactForm";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -18,10 +19,12 @@ export default function Footer() {
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-        >
+          >
           <span className="text-color-3">Connect</span>{" "}
           <span className="text-color-5">With Us</span>
         </motion.h2>
+        
+        <ContactForm/>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Description */}
@@ -65,12 +68,6 @@ export default function Footer() {
                   About Us
                 </Link>
                 <Link
-                  href="/services"
-                  className="text-color-3 hover:text-color-4 transition-colors"
-                >
-                  Services
-                </Link>
-                <Link
                   href="/practice-areas"
                   className="text-color-3 hover:text-color-4 transition-colors"
                 >
@@ -96,10 +93,13 @@ export default function Footer() {
               <h3 className="text-xl font-semibold mb-4 text-color-5">
                 Contact Us
               </h3>
-              <p className="text-color-3 mb-2">123 Legal Street, Cityville</p>
-              <p className="text-color-3 mb-2">State, Country 12345</p>
+              <p className="text-color-3 mb-2">
+                Plot No. 225, Flat - C, Gayatri Apartment, Zone-1, M.P. Nagar,
+                behind Hotel Nisarga, Bhopal
+              </p>
+              <p className="text-color-3 mb-2">Madhya Pradesh, India</p>
               <p className="text-color-3 mb-2">Phone: +1 (555) 123-4567</p>
-              <p className="text-color-3 mb-2">Email: info@mkvaidya.com</p>
+              <p className="text-color-3 mb-2">Email: adv.mkvaidya@gmail.com</p>
             </div>
           </motion.div>
 
@@ -154,8 +154,8 @@ export default function Footer() {
         {/* Copyright */}
         <div className="mt-16 pt-8 border-t border-color-1 text-center">
           <p className="text-color-3 text-sm">
-            &copy; {new Date().getFullYear()} MK Vaidya Tax Law. All Rights
-            Reserved.
+            &copy; {new Date().getFullYear()} Munindra Kumar Vaidya &
+            Associates. All Rights Reserved.
           </p>
         </div>
       </div>

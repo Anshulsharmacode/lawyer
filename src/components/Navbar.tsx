@@ -4,9 +4,11 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Montserrat } from "next/font/google";
+import { Montserrat ,Cinzel } from "next/font/google";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
+
+const cinzel = Cinzel({ subsets: ["latin"] });
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -40,7 +42,7 @@ export default function Navbar() {
   const navItems = [
     { href: "/", label: "Home" },
     { href: "/about", label: "About" },
-    { href: "/services", label: "Services" },
+    { href: "/practice-areas", label: "Practice Areas" },
     { href: "/contact", label: "Contact" },
   ];
 
@@ -48,8 +50,13 @@ export default function Navbar() {
     <nav className={`bg-color-1 shadow-lg z-50 w-full ${montserrat.className}`}>
       <div className="container mx-auto flex flex-col items-center py-4 px-8">
         {/* Logo */}
-        <div className="text-3xl font-bold text-color-4 tracking-wide mb-4">
-          MK Vaidya
+        <div
+          className={`text-[35px] font-weight-[400] leading-[35px] text-color-4 tracking-[1px] mb-4 ${cinzel.className}`}
+        >
+          <span className="underline underline-offset-4">
+            Munindra Kumar Vaidya
+          </span>{" "}
+          & <span className="underline underline-offset-4">Associates</span>
         </div>
 
         {/* Desktop Menu */}

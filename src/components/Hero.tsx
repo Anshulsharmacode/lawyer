@@ -14,7 +14,7 @@ const slides = [
       "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
     title: "Expert Legal Consultation",
     description:
-      "Providing expert legal advice for corporate law and litigation.",
+      "Providing expert legal advice for IT & GST Return filing, Tax and Corporate Litigation before IT Tribunal, GST Tribunal, High Court of Madhya Pradesh etc",
   },
   {
     id: 2,
@@ -22,7 +22,7 @@ const slides = [
       "https://images.unsplash.com/photo-1505664194779-8beaceb93744?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
     title: "Protect Your Rights",
     description:
-      "Defending your rights in personal injury and criminal law cases.",
+      "Proven Expertise in defending your rights in criminal cases under Bhartiya Nyaya Sanhita/Indian Penal Code, Offences under Cyber Crimes, White Collar Crimes (PMLA, PCA, etc).",
   },
   {
     id: 3,

@@ -9,6 +9,7 @@ import {
 import { IconType } from "react-icons";
 import { motion } from "framer-motion";
 import { Montserrat } from "next/font/google";
+import ContactForm from "./ContactForm";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -61,6 +62,7 @@ const Contact: React.FC = () => {
         >
           Get in <span className="text-color-5">Touch</span>
         </motion.h1>
+
         <div className="grid grid-cols-1 md:grid-cols-1 gap-12 items-center">
           <motion.div
             className="bg-color-1 shadow-2xl rounded-lg overflow-hidden"
@@ -75,9 +77,9 @@ const Contact: React.FC = () => {
               <div className="space-y-6">
                 <ContactItem
                   icon={FaEnvelope}
-                  href="mailto:mkvaidya@example.com"
+                  href="mailto:adv.mkvaidya@gmail.com"
                 >
-                  mkvaidya@example.com
+                  adv.mkvaidya@gmail.com
                 </ContactItem>
                 <ContactItem icon={FaPhone}>9425006403</ContactItem>
                 <ContactItem
@@ -87,7 +89,8 @@ const Contact: React.FC = () => {
                   facebook.com/mkvaidya
                 </ContactItem>
                 <ContactItem icon={FaMapMarkerAlt}>
-                  123 Legal Street, Cityville, State 12345
+                  Plot No. 225, Flat - C, Gayatri Apartment, Zone-1, M.P. Nagar,
+                  behind Hotel Nisarga, Bhopal (Madhya Pradesh)
                 </ContactItem>
               </div>
             </div>
@@ -107,6 +110,7 @@ const Contact: React.FC = () => {
             />
           </motion.div> */}
         </div>
+        <ContactForm />
         <motion.div
           className="mt-24 text-center"
           initial={{ opacity: 0, y: 50 }}
@@ -123,7 +127,7 @@ const Contact: React.FC = () => {
               href="mailto:mkvaidya@example.com"
               className="text-color-5 hover:text-color-4 transition-colors duration-300 font-semibold"
             >
-              mkvaidya@example.com
+              adv.mkvaidya@gmail.com
             </a>
             . We will do our best to respond as quickly as possible.
           </p>
