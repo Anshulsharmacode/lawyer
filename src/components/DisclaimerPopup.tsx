@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 
 const DisclaimerPopup = () => {
-  const [isVisible, setIsVisible] = useState(true);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const acceptedDisclaimer = localStorage.getItem("disclaimerAccepted");
@@ -23,7 +23,7 @@ const DisclaimerPopup = () => {
   };
 
   const handleDisagree = () => {
-    window.close();
+    window.location.href = "https://www.google.com";
   };
 
   if (!isVisible) return null;
@@ -85,18 +85,18 @@ const DisclaimerPopup = () => {
           legal counsel licensed to practice the relevant law in the appropriate
           jurisdiction.
         </p>
-        <div className="flex justify-between mt-6">
+        <div className="flex justify-around mt-6">
           <button
             onClick={handleAccept}
             className="px-4 py-2 rounded bg-color-5 font-semibold text-color-1"
           >
-            I HAVE READ THE DISCLAIMER AND AGREE TO IT
+            AGREE
           </button>
           <button
             onClick={handleDisagree}
             className="px-4 py-2 rounded bg-red-500 font-semibold text-color-1"
           >
-            I DISAGREE
+            DISAGREE
           </button>
         </div>
       </div>
