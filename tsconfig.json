@@ -28,6 +28,6 @@
     ".next/types/**/*.ts",
     "src/pages/api/medium-posts.tsx",
     "src/app/api/route.js"
-  ],
+, "src/app/Hooks/hooks.js"  ],
   "exclude": ["node_modules"]
 }

@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Montserrat, Cinzel } from "next/font/google";
+import Image from "next/image"; // Import Image from next/image
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 const cinzel = Cinzel({ subsets: ["latin"] });
@@ -42,17 +43,17 @@ export default function Navbar() {
 
   const navItems = [
     { href: "/", label: "Home" },
-    { href: "/about", label: "About" },
+    { href: "/about", label: "About Us" },
     { href: "/practice-areas", label: "Practice Areas" },
-    // { href: "/blogs", label: "Blogs" },
-    { href: "/contact", label: "Contact" },
+    { href: "/blogs", label: "Blogs" },
+    { href: "/contact", label: "Contact Us" },
   ];
 
   return (
     <nav className={`bg-color-1 shadow-lg z-50 w-full ${montserrat.className}`}>
       <div className="flex items-center justify-between">
         <div className="container mx-auto flex flex-col items-center justify-between py-4 px-8">
-          <img
+          <Image // Use Image component from next/image
             src={logoSrc}
             alt="Logo"
             width={80}
@@ -84,6 +85,14 @@ export default function Navbar() {
                 )}
               </div>
             ))}
+            {/* Schedule a Call Button (Desktop) */}
+            <Link
+              href="https://cal.com/m.k.-vaidya-associates"
+              target="_blank"
+              className="bg-color-4 text-white py-2 px-6 mt-1 rounded-full shadow-lg hover:bg-color-5 transition duration-300 transform hover:scale-105"
+            >
+              Schedule a Call
+            </Link>
           </div>
 
           {/* Hamburger Icon for Mobile */}
@@ -119,25 +128,15 @@ export default function Navbar() {
             ))}
 
             {/* Schedule a Call Button (Mobile) */}
-            {/* <Link
+            <Link
               href="https://cal.com/m.k.-vaidya-associates"
               target="_blank"
               className="bg-color-4 text-white py-2 px-6 rounded-full shadow-lg hover:bg-color-5 transition duration-300 transform hover:scale-105"
             >
               Schedule a Call
-            </Link> */}
+            </Link>
           </div>
         </motion.div>
-        {/* <div className="hidden md:flex items-center">
-          <Link
-            href="https://cal.com/m.k.-vaidya-associates"
-            target="_blank"
-            className="bg-color-4 text-white py-2 px-6 rounded-full shadow-lg hover:bg-color-5 transition duration-300 transform hover:scale-105"
-          >
-            Schedule 
-            a Call
-          </Link>
-        </div> */}
       </div>
     </nav>
   );

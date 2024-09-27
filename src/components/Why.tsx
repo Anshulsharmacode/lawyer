@@ -55,7 +55,7 @@ const whyChooseUs = [
     icon: <FaGlobe className="text-5xl text-color-5" />,
     title: "Pan India Reach",
     description:
-      "With international partnerships and multilingual staff, we're equipped to handle cases with global implications.",
+      "With nationwide partnerships and a diverse, multilingual team, we're equipped to handle cases with implications across India..",
   },
 ];
 
