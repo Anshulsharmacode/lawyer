@@ -25,7 +25,7 @@ const practiceAreas = [
     title: "GST Return Filing",
     description: "Expert representation in tax conflicts",
     image:
-      "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "/GST.jpg",
     link: "practice-areas/tax-dispute-resolution",
   },
   {
@@ -49,7 +49,7 @@ const practiceAreas = [
     title: "Tax Audit Service",
     description: "Secure your legacy and assets",
     image:
-      "https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "/Taxa.jpeg",
     link: "practice-areas/estate-gift-tax-planning",
   },
   {

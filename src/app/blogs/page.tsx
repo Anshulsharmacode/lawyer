@@ -1,107 +1,136 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
-
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import Parser from "rss-parser";
+import { Card, CardContent } from "@/components/ui/card";
+import Image from "next/image";
 
+import { Montserrat } from "next/font/google";
+import { ArrowRight } from "lucide-react";
+
+const montserrat = Montserrat({ subsets: ["latin"] });
 interface BlogPost {
+  thumbnail: string;
   title: string;
   subtitle: string;
-  thumbnail: string;
-  link: string;
   pubDate: string;
+  link: string;
 }
 
 const BlogShowcase: React.FC = () => {
-  const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
+  const [blogPosts, setPosts] = useState<BlogPost[]>();
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string>();
+
+  const username = "adv.mkvaidya";
+  const limit = 6
 
   useEffect(() => {
-    const fetchBlogPosts = async () => {
-      const parser = new Parser();
+    const fetchPosts = async () => {
       try {
-        const feed = await parser.parseURL(
-          "https://medium.com/feed/@yogendramanawat"
+        const res = await fetch(
+          `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@${username}`
         );
-        const posts = feed.items.slice(0, 6).map((item) => ({
+        const feed = await res.json();
+        console.log(feed)
+        const blogPosts = feed.items.slice(0, limit).map((item: { [x: string]: { match: (arg0: RegExp) => any[]; }; title: any; contentSnippet: any; link: any; pubDate: any; }) => ({
           title: item.title || "No title available",
           subtitle: item.contentSnippet
             ? item.contentSnippet.slice(0, 100) + "..."
-            : item["content:encodedSnippet"]
-            ? item["content:encodedSnippet"].slice(0, 100) + "..."
             : "No subtitle available",
-          thumbnail: item["content:encoded"]
-            ? item["content:encoded"].match(
-                /<img[^>]+src="?([^"\s]+)"?\s*\/?>/
-              )?.[1]
+          thumbnail: item["content"]
+            ? item["content"].match(
+                /src="?([^"\s]+)"?\s*\/?>/
+              )?.[1] ||
+              "https://miro.medium.com/max/1200/1*mk1-6aYaf_Bes1E3Imhc0A.jpeg"
             : "https://miro.medium.com/max/1200/1*mk1-6aYaf_Bes1E3Imhc0A.jpeg",
           link: item.link || "#",
           pubDate: item.pubDate || "No date available",
         }));
-        setBlogPosts(posts as BlogPost[]);
-      } catch (error) {
-        console.error("Error fetching blog posts:", error);
+        setPosts(blogPosts);
+      } catch (err) {
+        console.error("Error fetching blog posts:", err);
+        setError("Failed to load blog posts. Please try again later.");
+      } finally {
+        setIsLoading(false);
       }
     };
 
-    fetchBlogPosts();
-  }, []);
+    fetchPosts();
+  }, [username, limit]);
 
   return (
-    <section className="py-48 bg-background">
-      <div className="container mx-auto px-4">
+    <section
+      className={`w-full py-24 bg-color-2 text-color-3 ${montserrat.className}`}
+    >
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-3xl font-bold mb-16 text-center font-raleway"
+          className="text-5xl font-bold mb-16 text-center"
         >
-          Latest Blog Posts
+          <span className="text-color-3">Latest</span>{" "}
+          <span className="text-color-5">Blog Posts</span>
         </motion.h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {blogPosts.map((post, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-            >
-              <Card className="h-full flex flex-col">
-                <CardHeader>
-                  <img
-                    src={post.thumbnail}
-                    alt={post.title}
-                    width={400}
-                    height={200}
-                    className="rounded-t-lg object-cover w-full h-48"
-                  />
-                </CardHeader>
-                <CardContent className="flex-grow flex flex-col">
-                  <CardTitle className="text-xl mb-2 font-raleway">
-                    {post.title}
-                  </CardTitle>
-                  <p className="text-muted-foreground mb-4 font-montserrat flex-grow">
-                    {post.subtitle}
-                  </p>
-                  <div className="flex justify-between items-center">
-                    <span className="text-sm text-muted-foreground">
-                      {new Date(post.pubDate).toLocaleDateString()}
-                    </span>
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className="font-montserrat transition-transform transform hover:bg-blue-500 hover:text-white hover:scale-105" // Added scale effect for a bottom-up animation
-                      onClick={() => window.open(post.link, "_blank")}
-                    >
-                      Read More
-                    </Button>
+
+        {isLoading && (
+          <div className="text-center text-xl">Loading blog posts...</div>
+        )}
+
+        {error && (
+          <div className="text-center text-xl text-red-500">{error}</div>
+        )}
+
+        {!isLoading && !error && (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {blogPosts?.map((post: BlogPost, index: number) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <Card className="h-full group bg-color-2 shadow-lg rounded-lg overflow-hidden transition-all duration-300 hover:shadow-2xl border border-color-4/20">
+                  {/* <CardHeader> */}
+                  <div className="relative w-full h-48  overflow-hidden">
+                    <Image
+                      src={post.thumbnail}
+                      alt={post.title}
+                      layout="fill"
+                      objectFit="cover"
+                      className="transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-color-2 via-color-2/80 to-transparent"></div>
                   </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
-        </div>
+                  {/* </CardHeader> */}
+                  <CardContent className="p-6">
+                    <h3 className="text-xl font-semibold text-color-5 mb-2 flex items-center">
+                      {post.title}
+                    </h3>
+                    <p className="text-color-3/80 text-sm mb-4">
+                      {post.subtitle}
+                    </p>
+                    <div className="flex justify-between items-center">
+                      <span className="text-sm text-muted-foreground">
+                        {new Date(post.pubDate).toLocaleDateString()}
+                      </span>
+                      <div
+                        onClick={() => window.open(post.link, "_blank")}
+                        className="group inline-flex items-center text-color-5 hover:text-color-4 transition-colors duration-300 hover:cursor-pointer"
+                      >
+                        <span className="mr-2 text-sm font-medium">
+                          Read More
+                        </span>
+                        <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );
