@@ -3,6 +3,7 @@ import OurMission from "@/components/Ourmisson";
 import Footer from "@/components/Footerr";
 import Why from "@/components/Why";
 import AreasOfExpertise from "@/components/Areaa";
+import WhatOurClientsSay from "@/components/Testim";
 
 export default function Home() {
   return (
@@ -11,7 +12,7 @@ export default function Home() {
       <OurMission />
       <AreasOfExpertise />
       <Why />
-      {/* <WhatOurClientsSay/> */}
+      <WhatOurClientsSay/>
       <Footer />
     </div>
   );

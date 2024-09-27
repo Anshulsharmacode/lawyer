@@ -22,7 +22,7 @@ const testimonials = [
     quote:
       "The guidance provided by the legal team was exceptional. They made the entire process seamless and stress-free!",
     image:
-      "https://images.unsplash.com/photo-1584515932025-1c1c1c1c1c1c?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+      "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
   },
   {
     id: 3,
@@ -31,7 +31,7 @@ const testimonials = [
     quote:
       "I was impressed by their professionalism and dedication. They truly care about their clients!",
     image:
-      "https://images.unsplash.com/photo-1593642632470-8b4c1c1c1c1c?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+      "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
   },
   {
     id: 4,
@@ -59,13 +59,13 @@ export default function WhatOurClientsSay() {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
-    }, 5000);
+    }, 3000);
 
     return () => clearInterval(timer);
   }, []);
 
   return (
-    <section className="w-full py-24 bg-black text-white">
+    <section className="w-full py-24 bg-color-5 text-white overflow-clip">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.h2
           className="text-5xl font-bold mb-16 text-center"
@@ -73,42 +73,48 @@ export default function WhatOurClientsSay() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <span className="text-white">What Our</span> <span className="text-red-600">Clients Say</span>
+          <span className="text-white">What Our</span>{" "}
+          <span className="text-white">Clients Say</span>
         </motion.h2>
 
-        <div className="relative h-[600px] overflow-hidden">
+        <motion.div
+          initial={{ x: "100%" }}
+          animate={{ x: "-100%" }}
+          transition={{
+            duration: testimonials.length * 3,
+            repeat: Infinity,
+            ease: "linear",
+            repeatType: "loop",
+          }}
+          className="flex mt-32"
+        >
           <AnimatePresence initial={false}>
             {testimonials.map((testimonial, index) => (
               <motion.div
                 key={testimonial.id}
-                className="absolute w-64 h-96 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                className="flex min-w-[400px]  "
                 initial={{
-                  opacity: index === currentIndex ? 1 : 0,
-                  scale: index === currentIndex ? 1 : 0.8,
-                  zIndex: index === currentIndex ? 1 : 0,
+                  scale: 0.8,
                 }}
                 animate={{
-                  opacity: index === currentIndex ? 1 : 0,
                   scale: index === currentIndex ? 1 : 0.8,
-                  zIndex: index === currentIndex ? 1 : 0,
                 }}
-                exit={{
-                  opacity: 0,
-                  scale: 0.8,
-                  zIndex: 0,
+                transition={{
+                  duration: 0.5, // Smooth out the transition timing
+                  ease: "easeInOut", // Make the easing more natural
                 }}
-                transition={{ duration: 0.5 }}
               >
-                <Card className="bg-white text-black shadow-lg rounded-lg overflow-hidden transition-all duration-300 hover:shadow-2xl p-6 h-full">
-                  <div className="relative h-20 w-20 rounded-full overflow-hidden mb-4 mx-auto">
+                <Card className="bg-white w-full relative text-black rounded-lg transition-all duration-300  p-6 h-full">
+                  <div className="absolute -top-28 left-1/4 h-48 w-48 rounded-full  mb-4 mx-auto">
                     <Image
+                      className="rounded-full"
                       src={testimonial.image}
                       alt={testimonial.name}
                       layout="fill"
                       objectFit="cover"
                     />
                   </div>
-                  <h3 className="text-xl font-semibold text-center mb-2">
+                  <h3 className="text-2xl font-semibold text-center mb-2 mt-16">
                     {testimonial.name}
                   </h3>
                   <p className="text-gray-600 text-center mb-4">
@@ -123,7 +129,7 @@ export default function WhatOurClientsSay() {
               </motion.div>
             ))}
           </AnimatePresence>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
