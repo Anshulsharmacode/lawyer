@@ -6,7 +6,7 @@ import nodemailer from 'nodemailer'
 export async function POST(request) {
    try {
 
-      const username = process.env.EMAIL_USERNAME;
+      const username = process.env.EMAIL;
       const password = process.env.EMAIL_PASSWORD;
       const myEmail = process.env.PERSONAL_EMAIL;
 

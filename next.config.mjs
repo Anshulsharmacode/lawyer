@@ -16,7 +16,7 @@ const nextConfig = {
         },
         // Add other domains as needed 
       ],
-    },
+  }
   };
 
   export default nextConfig;
