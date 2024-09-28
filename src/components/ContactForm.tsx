@@ -1,7 +1,6 @@
 "use client";
 
 
-
 export default function ContactForm() {
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
