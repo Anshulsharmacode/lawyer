@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-
+import Image from "next/image";
 import ContactForm from "./ContactForm";
 import { Montserrat } from "next/font/google";
 import { FaMapMarkerAlt } from "react-icons/fa";
