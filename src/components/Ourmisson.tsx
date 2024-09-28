@@ -38,7 +38,8 @@ export default function OurMission() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          Our Mission
+          Our
+          <span className="text-color-2"> Mission</span>
         </motion.h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-5xl mx-auto">

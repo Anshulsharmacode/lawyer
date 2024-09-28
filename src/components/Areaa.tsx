@@ -24,8 +24,7 @@ const practiceAreas = [
     id: 2,
     title: "GST Return Filing",
     description: "Expert representation in tax conflicts",
-    image:
-      "/GST.jpg",
+    image: "/GST.jpg",
     link: "practice-areas/tax-dispute-resolution",
   },
   {
@@ -48,8 +47,7 @@ const practiceAreas = [
     id: 5,
     title: "Tax Audit Service",
     description: "Secure your legacy and assets",
-    image:
-      "/Taxa.jpeg",
+    image: "/Taxa.jpeg",
     link: "practice-areas/estate-gift-tax-planning",
   },
   {
@@ -87,34 +85,35 @@ export default function AreasOfExpertise() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
-              <Card className="group h-full bg-color-2 shadow-lg rounded-lg overflow-hidden transition-all duration-300 hover:shadow-2xl border border-color-4/20">
-                <div className="relative h-48 w-full overflow-hidden">
-                  <Image
-                    src={area.image}
-                    alt={area.title}
-                    layout="fill"
-                    objectFit="cover"
-                    className="transition-transform duration-500 group-hover:scale-105 filter grayscale"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-color-2 via-color-2/80 to-transparent"></div>
-                </div>
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold text-color-5 mb-2 flex items-center">
-                    <Briefcase className="mr-2 w-5 h-5" />
-                    {area.title}
-                  </h3>
-                  <p className="text-color-3/80 text-sm mb-4">
-                    {area.description}
-                  </p>
-                  <Link
-                    href={`practice-areas/${area.id}`}
-                    className="group inline-flex items-center text-color-5 hover:text-color-4 transition-colors duration-300"
-                  >
-                    <span className="mr-2 text-sm font-medium">Learn More</span>
-                    <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-                  </Link>
-                </CardContent>
-              </Card>
+              <Link href={`practice-areas/${area.id}`} className="block h-full">
+                <Card className="group h-full bg-color-2 shadow-lg rounded-lg overflow-hidden transition-all duration-300 hover:shadow-2xl border border-color-4/20 cursor-pointer">
+                  <div className="relative h-48 w-full overflow-hidden">
+                    <Image
+                      src={area.image}
+                      alt={area.title}
+                      layout="fill"
+                      objectFit="cover"
+                      className="transition-transform duration-500 group-hover:scale-105 filter grayscale"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-color-2 via-color-2/80 to-transparent"></div>
+                  </div>
+                  <CardContent className="p-6">
+                    <h3 className="text-xl font-semibold text-color-5 mb-2 flex items-center">
+                      <Briefcase className="mr-2 w-5 h-5" />
+                      {area.title}
+                    </h3>
+                    <p className="text-color-3/80 text-sm mb-4">
+                      {area.description}
+                    </p>
+                    <div className="group inline-flex items-center text-color-5 hover:text-color-4 transition-colors duration-300">
+                      <span className="mr-2 text-sm font-medium">
+                        Learn More
+                      </span>
+                      <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
             </motion.div>
           ))}
         </div>

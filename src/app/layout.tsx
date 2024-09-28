@@ -3,6 +3,7 @@ import { Montserrat } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import DisclaimerPopup from "@/components/DisclaimerPopup";
+import Footer from "@/components/Footerr";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -24,9 +25,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={montserrat.className}>
-        <DisclaimerPopup/>
+        <DisclaimerPopup />
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
