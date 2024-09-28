@@ -6,7 +6,15 @@ const nextConfig = {
           protocol: 'https',
           hostname: 'images.unsplash.com',
         },
-        // Add other domains as needed
+        {
+          protocol: 'https',
+          hostname: "miro.medium.com",
+        },
+        {
+          protocol: 'https',
+          hostname: "cdn-images-1.medium.com",
+        },
+        // Add other domains as needed 
       ],
     },
   };

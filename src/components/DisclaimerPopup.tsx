@@ -23,14 +23,14 @@ const DisclaimerPopup = () => {
   };
 
   const handleDisagree = () => {
-    window.close();
+    window.location.href = "https://www.google.com";
   };
 
   if (!isVisible) return null;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-5 backdrop-blur-xl">
-      <div className="p-8 rounded-lg shadow-lg text-center max-w-3xl w-full mx-4 bg-color-2 border-2 border-color-5 overflow-y-auto max-h-screen">
+      <div className="p-8 rounded-lg shadow-lg text-center max-w-3xl w-full mx-auto my-24 bg-color-2 border-2 border-color-5 overflow-y-auto max-h-[calc(100vh-12rem)]">
         <h2 className="text-2xl font-semibold mb-4 text-color-4">Disclaimer</h2>
         <p className="mb-6 text-color-5 text-left">
           <strong>User Acknowledgement:</strong> By proceeding further and
@@ -85,18 +85,18 @@ const DisclaimerPopup = () => {
           legal counsel licensed to practice the relevant law in the appropriate
           jurisdiction.
         </p>
-        <div className="flex justify-between mt-6">
+        <div className="flex justify-around mt-6">
           <button
             onClick={handleAccept}
             className="px-4 py-2 rounded bg-color-5 font-semibold text-color-1"
           >
-            I HAVE READ THE DISCLAIMER AND AGREE TO IT
+            AGREE
           </button>
           <button
             onClick={handleDisagree}
             className="px-4 py-2 rounded bg-red-500 font-semibold text-color-1"
           >
-            I DISAGREE
+            DISAGREE
           </button>
         </div>
       </div>

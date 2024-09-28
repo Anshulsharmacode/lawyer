@@ -89,7 +89,7 @@ export default function Navbar() {
             <Link
               href="https://cal.com/m.k.-vaidya-associates"
               target="_blank"
-              className="bg-color-4 text-white py-2 px-6 mt-1 rounded-full shadow-lg hover:bg-color-5 transition duration-300 transform hover:scale-105"
+              className="bg-color-5 text-white py-2 px-6 mt-1 rounded-full shadow-lg hover:bg-color-5 transition duration-300 transform hover:scale-105"
             >
               Schedule a Call
             </Link>
